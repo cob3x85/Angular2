@@ -1,0 +1,18 @@
+
+  <ul>
+    <li *ngFor="let product of productList">
+      <span>{{product.name}} - {{product.price}}</span>
+    </li>
+  </ul>
+
+   <ul>
+    <li *ngFor="let product of productsDb | async">
+      <span>{{product.$key}} - {{product.name}} - {{product.description}}</span>
+    </li>
+  </ul>
+
+
+<div class="row columns">
+  <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+</div>

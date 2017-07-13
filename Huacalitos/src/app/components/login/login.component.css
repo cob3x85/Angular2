@@ -1,0 +1,12 @@
+.login-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  width: 100%;
+}
+
+.login-box form {
+  width: 600px;
+}

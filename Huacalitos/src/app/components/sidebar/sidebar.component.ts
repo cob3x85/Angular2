@@ -6,6 +6,7 @@ declare var $: any;
     // moduleId: module.id,
     selector: 'app-sidebar-cmp',
     templateUrl: 'sidebar.component.html',
+    styles: ['../../../styles.css']
 })
 
 export class SidebarComponent implements OnInit {

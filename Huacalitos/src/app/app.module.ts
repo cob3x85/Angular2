@@ -18,21 +18,25 @@ import { AuthService } from './components/services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 firebase.initializeApp(environment.firebase, );
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: ProductsComponent },
   { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
-    OrderComponent,
+    FooterComponent,
+    HomeComponent,
     LoginComponent,
-    HomeComponent
+    NavbarComponent,
+    OrderComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export class AuthService {
   // use parameters coming from page.
   loginWithEmail(userName: string, password: string): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.afAuth.auth.signInWithEmailAndPassword(credName, credKey).then((success) => {
+      this.afAuth.auth.signInWithEmailAndPassword(userName, password).then((success) => {
         console.log(success);
         resolve(true);
       }, (error) => {

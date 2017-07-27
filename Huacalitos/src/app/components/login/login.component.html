@@ -4,22 +4,21 @@
   <div class="container-fluid col-md-5 col-lg-5 col-sm-5">
     <form class="card ">
       <div class="card-header" data-background-color="green">
-        <h4 class="title">Huacalitos</h4>
+        <h4 class="title">Huacalitos Regalos</h4>
       </div>
       <div class="card-content">
         <div class="">
           <div class="form-group form-black is-empty">
             <h6 class="control-label">Nombre de usuario</h6>
-            <input class="form-control" type="text" ng-model="userName" />
+            <input class="form-control" type="text" [(ngModel)]="username" name="username" />
             <span class="material-input"></span>
           </div>
         </div>
 
-
-        <div class="">
-          <h6 class="control-label">Contraseña</h6>
-          <input class="form-control" type="password" ng-model="password" />
-        </div>
+      <div class="">
+        <h6 class="control-label">Contraseña</h6>
+        <input class="form-control" type="password" [(ngModel)]="password" name="password" />
+      </div>
 
         <div class="row">
           <div class="col-md-12 col-lg-12 col-sm-12">

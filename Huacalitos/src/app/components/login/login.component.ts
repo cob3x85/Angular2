@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.loginWithEmail(this.username, this.password).then((data) => {
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
     });
   }
 
   loginWithGoogle() {
     this.authService.loginWithGoogle().then((data) => {
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
     });
   }
 

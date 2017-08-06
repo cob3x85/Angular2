@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './../classes/product';
-import { ProductService } from '../services/product.service';
-import { AuthService } from '../services/auth.service';
+import { Product } from './../../classes/product';
+import { ProductService } from '../../services/product.service';
+import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 

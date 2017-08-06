@@ -2,7 +2,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
 
-    { path: 'inevntory', title: 'Inventario', icon: 'dashboard', class: '' },
+    { path: 'inventory', title: 'Inventario', icon: 'dashboard', class: '',  },
     { path: 'user', title: 'Clientes', icon: 'person', class: '' },
     { path: 'orders', title: 'Ordenes de compra', icon: 'content_paste', class: '' }
 

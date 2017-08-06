@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './components/products/products.component';
-import { OrderComponent } from './components/order/order.component';
+import { ProductsComponent } from './components/home/products/products.component';
+import { OrderComponent } from './components/home/order/order.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -21,12 +21,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-firebase.initializeApp(environment.firebase, );
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { homeRoutes } from './app.routes';
 
-const routes: Routes = [
-  { path: '', component: ProductsComponent },
-  { path: 'login', component: LoginComponent }
-];
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -43,12 +41,13 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     SidebarModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(homeRoutes),
     AngularFireModule.initializeApp(environment.firebase, 'huacalitos-3b554'), // imports firebase/app needed for everything
     AngularFireAuthModule, // imports firebase/database, only needed for database features
     AngularFireDatabaseModule // imports firebase/auth, only needed for auth features
   ],
-  providers: [AuthService, ProductService, RouterModule], // Add every service to be used as a module
+  providers: [AuthService, ProductService, RouterModule,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }], // Add every service to be used as a module
   bootstrap: [AppComponent]
 })
 export class AppModule { }

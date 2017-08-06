@@ -4,7 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from 'app/components/home/products/products.component';
 import { OrderComponent } from 'app/components/home/order/order.component';
-import { UsersComponent } from 'app/components/home/users/users.component';
+import { ClientsComponent } from 'app/components/home/clients/clients.component';
 import { AuthGuard } from 'app/components/guards/auth.guard';
 
 export const homeRoutes: Routes = [
@@ -16,7 +16,7 @@ export const homeRoutes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: 'inventory', component: ProductsComponent },
-            { path: 'users', component: UsersComponent },
+            { path: 'clients', component: ClientsComponent },
             { path: 'orders', component: OrderComponent }
         ]
     }

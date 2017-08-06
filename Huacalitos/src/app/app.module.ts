@@ -17,7 +17,7 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { UsersComponent } from './components/home/users/users.component';
+import { ClientsComponent } from './components/home/clients/clients.component';
 
 import { ProductService } from './components/services/product.service';
 import { AuthService } from './components/services/auth.service';
@@ -36,7 +36,7 @@ firebase.initializeApp(environment.firebase);
     NavbarComponent,
     OrderComponent,
     ProductsComponent,
-    UsersComponent
+    ClientsComponent
   ],
   imports: [
     BrowserModule,

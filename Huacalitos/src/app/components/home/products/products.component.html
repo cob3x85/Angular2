@@ -1,5 +1,18 @@
 <div class="main-content">
   <div class="container-fluid">
+
+ <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Inventario</h4>
+                        <p class="category">Agrega nuevos artículos o modifica los existentes.</p>
+                    </div>
+                </div>
+            </div>
+ </div>
+
+
     <ul>
       <li *ngFor="let product of productList">
         <span>{{product.name}} - {{product.price}}</span>
@@ -12,12 +25,6 @@
         <span>{{product.quantity}}</span> 
       </li>
     </ul>
-
-
-    <div class="row columns">
-      <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-      <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-    </div>
 
   </div>
 </div>

@@ -24,6 +24,8 @@ import { AuthService } from './components/services/auth.service';
 
 import { homeRoutes } from './app.routes';
 import { AuthGuard } from 'app/components/guards/auth.guard';
+import { ClientDetailComponent } from './components/home/clients/client-detail/client-detail.component';
+import { DetailBoxComponent } from './shared/detail-box/detail-box.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -36,7 +38,9 @@ firebase.initializeApp(environment.firebase);
     NavbarComponent,
     OrderComponent,
     ProductsComponent,
-    ClientsComponent
+    ClientsComponent,
+    ClientDetailComponent,
+    DetailBoxComponent
   ],
   imports: [
     BrowserModule,

@@ -14,5 +14,13 @@
 
     <app-detail-box></app-detail-box>
 
+     <ul>
+      <li *ngFor="let client of clientList">
+        <app-detail-box>
+          <app-client-detail></app-client-detail>
+        </app-detail-box>
+      </li>
+    </ul>
+
   </div>
 </div>

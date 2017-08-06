@@ -12,8 +12,24 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
     location: Location;
+    private isLoggedIn: Boolean;
+    private user_displayName: String;
+    private user_email: String;
     constructor(location: Location, public authService: AuthService, private router: Router) {
         this.location = location;
+        this.authService.afAuth.auth.onAuthStateChanged(
+            (auth) => {
+                if (auth == null) {
+                    this.isLoggedIn = false;
+                    this.user_displayName = '';
+                    this.user_email = '';
+                    this.router.navigate(['login']);
+                } else {
+                    this.isLoggedIn = true;
+                    // this.user_displayName = auth.displayName;
+                    this.user_email = auth.email;
+                }
+            });
     }
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
@@ -28,7 +44,7 @@ export class NavbarComponent implements OnInit {
                 return this.listTitles[item].title;
             }
         }
-        return 'Dashboard';
+        return '';
     }
 
     logout() {

@@ -6,10 +6,23 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
+  private user_displayName: String;
   userInfo: Observable<firebase.UserInfo>;
+  user_email: String;
+  isLoggedIn: boolean;
 
   constructor(public afAuth: AngularFireAuth) {
-
+    this.afAuth.auth.onAuthStateChanged(
+      (auth) => {
+        if (auth == null) {
+          this.user_displayName = '';
+          this.user_email = '';
+        } else {
+          this.isLoggedIn = true;
+          // this.user_displayName = auth.displayName;
+          this.user_email = auth.email;
+        }
+      });
   }
 
   // use parameters coming from page.
@@ -33,6 +46,9 @@ export class AuthService {
 
   logout() {
     this.afAuth.auth.signOut();
-    console.log('logged out');
+  }
+
+  isUserLoggedIn() {
+    return this.isLoggedIn;
   }
 }

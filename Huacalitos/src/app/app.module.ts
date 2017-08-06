@@ -12,18 +12,18 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import * as firebase from 'firebase';
-
-import { ProductService } from './components/services/product.service';
-import { AuthService } from './components/services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { homeRoutes } from './app.routes';
 import { UsersComponent } from './components/home/users/users.component';
+
+import { ProductService } from './components/services/product.service';
+import { AuthService } from './components/services/auth.service';
+
+import { homeRoutes } from './app.routes';
+import { AuthGuard } from 'app/components/guards/auth.guard';
 
 firebase.initializeApp(environment.firebase);
 
@@ -48,8 +48,12 @@ firebase.initializeApp(environment.firebase);
     AngularFireAuthModule, // imports firebase/database, only needed for database features
     AngularFireDatabaseModule // imports firebase/auth, only needed for auth features
   ],
-  providers: [AuthService, ProductService, RouterModule,
-    { provide: LocationStrategy, useClass: HashLocationStrategy }], // Add every service to be used as a module
+  providers: [
+    AuthService,
+    ProductService,
+    RouterModule,
+    AuthGuard
+  ], // Add every service to be used as a module
   bootstrap: [AppComponent]
 })
 export class AppModule { }

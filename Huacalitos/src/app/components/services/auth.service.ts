@@ -6,20 +6,20 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  private user_displayName: String;
   userInfo: Observable<firebase.UserInfo>;
   user_email: String;
+  user_displayName: String;
   isLoggedIn: boolean;
 
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth.auth.onAuthStateChanged(
       (auth) => {
         if (auth == null) {
-          this.user_displayName = '';
-          this.user_email = '';
+          this.user_displayName = null;
+          this.user_email = null;
         } else {
           this.isLoggedIn = true;
-          // this.user_displayName = auth.displayName;
+          this.user_displayName = auth.displayName;
           this.user_email = auth.email;
         }
       });

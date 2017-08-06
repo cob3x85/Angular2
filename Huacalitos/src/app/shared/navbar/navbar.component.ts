@@ -17,23 +17,13 @@ export class NavbarComponent implements OnInit {
     private user_email: String;
     constructor(location: Location, public authService: AuthService, private router: Router) {
         this.location = location;
-        this.authService.afAuth.auth.onAuthStateChanged(
-            (auth) => {
-                if (auth == null) {
-                    this.isLoggedIn = false;
-                    this.user_displayName = '';
-                    this.user_email = '';
-                    this.router.navigate(['login']);
-                } else {
-                    this.isLoggedIn = true;
-                    // this.user_displayName = auth.displayName;
-                    this.user_email = auth.email;
-                }
-            });
+        this.user_email = this.authService.user_email;
+        this.user_displayName = this.authService.user_displayName;
     }
     ngOnInit() {
         this.listTitles = ROUTES.filter(listTitle => listTitle);
     }
+
     getTitle() {
         let titlee = this.location.prepareExternalUrl(this.location.path());
         if (titlee.charAt(0) === '#') {

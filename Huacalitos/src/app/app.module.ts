@@ -23,6 +23,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { homeRoutes } from './app.routes';
+import { UsersComponent } from './components/home/users/users.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -34,7 +35,8 @@ firebase.initializeApp(environment.firebase);
     LoginComponent,
     NavbarComponent,
     OrderComponent,
-    ProductsComponent
+    ProductsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

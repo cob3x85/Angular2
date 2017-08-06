@@ -9,6 +9,7 @@
     <ul>
       <li *ngFor="let product of productsDb | async">
         <span>{{product.$key}} - {{product.name}} - {{product.description}}</span>
+        <span>{{product.quantity}}</span> 
       </li>
     </ul>
 

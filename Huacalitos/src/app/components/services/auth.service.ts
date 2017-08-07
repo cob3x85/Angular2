@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { credName, credKey } from '../../../environments/environment';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -11,12 +12,13 @@ export class AuthService {
   user_displayName: String;
   isLoggedIn: boolean;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.auth.onAuthStateChanged(
       (auth) => {
         if (auth == null) {
           this.user_displayName = null;
           this.user_email = null;
+          this.router.navigate(['login']);
         } else {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;

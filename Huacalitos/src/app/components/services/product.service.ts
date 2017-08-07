@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../classes/product';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { MockProducts } from 'app/components/services/mock-products';
+import { MockProducts } from 'app/components/mock-data/mock-products';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
 

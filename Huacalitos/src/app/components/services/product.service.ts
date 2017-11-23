@@ -26,7 +26,7 @@ export class ProductService {
 
         this.filteredProducts = this.dbFirebase.list('/product', {
             query: {
-                limitToFirst: 50
+                limitToFirst: 1
             }
         });
         return this.products;

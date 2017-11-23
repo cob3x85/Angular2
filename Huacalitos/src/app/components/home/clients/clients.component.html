@@ -1,48 +1,48 @@
 <div class="main-content">
-  <div class="container-fluid">
+    <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card card-profile">
-          <div class="card-header" data-background-color="red">
-            <h4 class="title">Clientes</h4>
-            <p class="category">Agrega nuevos clientes o modifica los existentes.</p>
-          </div>
-          <div class="card-content">
-            <form>
-              <div class="row">
-
-                <ul>
-                  <li *ngFor="let client of clients">
-                    <app-client-detail [client]="client"></app-client-detail>
-                  </li>
-                </ul>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-content">
-              <form action="">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group form-black label-floating is-empty">
-                      <label class="control-label">Username</label>
-                      <input class="form-control" type="text">
-                      <span class="material-input"></span>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-profile">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Clientes</h4>
+                        <p class="category">Agrega nuevos clientes o modifica los existentes.</p>
                     </div>
-                  </div>
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+
+                                <ul>
+                                    <li *ngFor="let client of clientsDb | async">
+                                        <app-client-detail [client]="client"></app-client-detail>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-              </form>
             </div>
-          </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-content">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label">Username</label>
+                                            <input class="form-control" type="text">
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 </div>

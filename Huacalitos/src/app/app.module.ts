@@ -21,6 +21,7 @@ import { ClientsComponent } from './components/home/clients/clients.component';
 
 import { ProductService } from './components/services/product.service';
 import { AuthService } from './components/services/auth.service';
+import { ClientService } from './components/services/client.service';
 
 import { homeRoutes } from './app.routes';
 import { AuthGuard } from 'app/components/guards/auth.guard';
@@ -54,6 +55,7 @@ firebase.initializeApp(environment.firebase);
   ],
   providers: [
     AuthService,
+    ClientService,
     ProductService,
     RouterModule,
     AuthGuard

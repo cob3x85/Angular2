@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'app/components/classes/client';
 import { ClientsMock } from 'app/components/mock-data/clients-mock';
+import { ClientService } from '../../services/client.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-clients',
@@ -9,11 +11,15 @@ import { ClientsMock } from 'app/components/mock-data/clients-mock';
 })
 export class ClientsComponent implements OnInit {
   clients: Client[] = [];
+  clientSvc: ClientService;
+  clientsDb: FirebaseListObservable<Client[]>;
 
-  constructor() { }
+  constructor(private clientService: ClientService) {
+    this.clientSvc = clientService;
+  }
 
   ngOnInit() {
-    this.clients = ClientsMock;
+    this.clientsDb = this.clientService.getClients();
   }
 
 }

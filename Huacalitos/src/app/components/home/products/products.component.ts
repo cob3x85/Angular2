@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productList = this.productSvc.getMockProducts();
+    this.productsDb = this.productSvc.getProducts();
   }
 
   // login() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Client } from "app/components/classes/client";
+import { Client } from 'app/components/classes/client';
 
 @Component({
   selector: 'app-client-detail',

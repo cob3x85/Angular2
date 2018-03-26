@@ -38,8 +38,9 @@ export class ProductListComponent implements OnInit {
 
   constructor() { }
 
+  // Lifecycle Hook
   ngOnInit() {
-
+    console.log('In Oninit');
 
   }
 

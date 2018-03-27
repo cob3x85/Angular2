@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './products';
 import { ProductService } from '../services/product.service';
+import { Observable } from 'rxjs/Observable';
+import { error } from 'util';
 
 @Component({
   selector: 'pm-products',
@@ -13,6 +15,7 @@ export class ProductListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
+  errorMessage: string;
 
   _listFilter: string;
   get listFilter(): string {
@@ -34,10 +37,17 @@ export class ProductListComponent implements OnInit {
   }
 
   // Lifecycle Hook
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('In OnInit, Load products');
-    this.products = this._productService.getProducts();
-    this.filteredProducts = this.products;
+
+    // Subscribe has 3 callbacks, (valueFn , onErrorfn, onCompleteFn )
+    this._productService.getProducts(true)
+      .subscribe(product => {
+        this.products = product;
+        this.filteredProducts = this.products;
+      },
+        error => this.errorMessage = <any>error);
+
   }
 
   onRatingClicked(message: string): void {

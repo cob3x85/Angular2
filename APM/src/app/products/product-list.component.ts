@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
     console.log('In OnInit, Load products');
 
     // Subscribe has 3 callbacks, (valueFn , onErrorfn, onCompleteFn )
-    this._productService.getProducts(true)
+    this._productService.getProducts()
       .subscribe(product => {
         this.products = product;
         this.filteredProducts = this.products;

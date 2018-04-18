@@ -17,13 +17,12 @@ export class ProductService {
 
     }
 
-    getProducts(includeDeleted: boolean): Observable<IProduct[]> {
-
-        return this._http.post(this._productUrl + 'products', includeDeleted,
+    getProducts(): Observable<IProduct[]> {
+        return this._http.post(this._productUrl + 'GetAllProducts',
             {
-                headers: new HttpHeaders().set('Content-Type', 'application/json')
+                headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
             })
-            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
     }
 
